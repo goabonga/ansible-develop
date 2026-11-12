@@ -3,9 +3,13 @@
 
 PLAYBOOK ?= playbooks/site.yml
 
-.PHONY: lint
+.DEFAULT_GOAL := help
+.PHONY: help lint
+
+help: ## List the make targets
+	@awk -F':.*## ' '/^[a-z][a-z-]*:.*## /{printf "  %-8s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 # yamllint and ansible-lint run through uvx: nothing to install by hand.
-lint:
+lint: ## Run yamllint and ansible-lint
 	uvx yamllint .
 	uvx --from ansible-lint ansible-lint
