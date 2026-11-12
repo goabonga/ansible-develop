@@ -11,3 +11,14 @@ and a marker file in it.
 ```bash
 ansible-playbook playbooks/site.yml
 ```
+
+## Code quality and tests
+
+```bash
+make help   # list the make targets
+make lint   # yamllint, ansible-lint
+make test   # syntax check, then two runs: the second must change nothing
+```
+
+`make test` applies the playbook to the local machine; set `HOME` to a
+scratch directory to keep your own state untouched.
