@@ -5,6 +5,7 @@
 extends: default
 ignore: |
   .ansible/
+  .github/
 rules:
   # The values ansible-lint requires of a custom yamllint configuration.
   comments:
