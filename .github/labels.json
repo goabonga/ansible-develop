@@ -1,0 +1,7 @@
+[
+  {
+    "name": "resign",
+    "color": "5319e7",
+    "description": "Rebase the pull request on main and re-sign its commits"
+  }
+]
