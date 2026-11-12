@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Chris <goabonga@pm.me>
+
+---
+galaxy_info:
+  author: Chris
+  description: Base configuration applied to every host.
+  license: MIT
+  min_ansible_version: "2.16"
+  platforms:
+    - name: GenericLinux
+      versions: [all]
+  galaxy_tags: []
+dependencies: []
