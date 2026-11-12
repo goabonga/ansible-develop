@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "git_head": "4a17c7e2f2e36bed2d3bee06caed1767abe72944",
+  "git_head_short": "4a17c7e",
+  "timestamp": "2026-11-12T13:40:13Z",
+  "components": {
+    "ansible-develop": {
+      "version": "0.1.0",
+      "tag": "v0.1.0",
+      "tag_sha": null
+    }
+  }
+}
