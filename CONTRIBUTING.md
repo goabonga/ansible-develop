@@ -51,7 +51,28 @@ version bump and CHANGELOG computed by
 
 Only commits that touch the tracked paths (`playbooks/**`, `roles/**`,
 `inventories/**`, `ansible.cfg`) trigger a release. Do not append
-`Co-Authored-By` trailers.
+`Co-Authored-By` trailers. Commits must be signed: add the `resign` label
+to a pull request to have its commits re-signed.
+
+## Releasing
+
+Releases are automated. A push to `main` starts a strictly ordered
+pipeline: `resign-main` (re-signs unsigned commits), then `ci`, then
+`release`, each starting when the previous one completed. The `release`
+workflow runs `multicz bump` (signed commit and tag) and creates the
+GitHub release. Maintainers do not bump versions or edit the changelog by
+hand.
+
+Pull requests run `ci` and `signatures`, which fails on any unverified
+commit. Dependabot pull requests are rewritten as signed `ci:` commits by
+`dependabot-rewrite`.
+
+### Repository setup (maintainers)
+
+- Secrets: `GH_PAT` (personal access token of the maintainer),
+  `GPG_PRIVATE_KEY`, `GPG_PASSPHRASE`.
+- `scripts/apply-labels.sh` creates the labels and
+  `scripts/apply-rulesets.sh` applies the `main` ruleset.
 
 ## Reporting bugs and asking for features
 
